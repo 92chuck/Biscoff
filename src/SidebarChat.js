@@ -46,11 +46,18 @@ function SidebarChat({ id, name, addNewChat }) {
         <UpdateRoomName id={id} name={name} />
         <Delete onClick={() => removeChat(id)} />
       </div>
-      <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.png`} />
+      <Avatar
+        src={`https://avatars.dicebear.com/api/croodles/${seed}.png`}
+        sx={{ height: '55px', width: '55px' }}
+      />
       <Link to={`/rooms/${id}`} key={id}>
         <div className='sidebarChat__info'>
           <h2>{name}</h2>
-          <p>{messages[0]?.message}</p>
+          <p>
+            {messages[0]?.message.includes('https://')
+              ? 'image'
+              : messages[0]?.message}
+          </p>
         </div>
       </Link>
     </div>

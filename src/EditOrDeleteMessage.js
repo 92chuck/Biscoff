@@ -9,7 +9,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import db from './firebase';
 import EditAttributesIcon from '@mui/icons-material/EditAttributes';
 
-export default function UpdateMessage({ messageId, roomId, messageInput }) {
+export default function EditOrDeleteMessage({ messageId, roomId, messageInput }) {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState('');
 
@@ -25,6 +25,16 @@ export default function UpdateMessage({ messageId, roomId, messageInput }) {
 
   const handleClose = () => {
     setOpen(false);
+  };
+  const removeMessage = (messageID) => {
+    db.collection('rooms')
+      .doc(roomId)
+      .collection('messages')
+      .doc(messageID)
+      .delete()
+      .catch((error) => {
+        console.error('Error removing document: ', error);
+      });
   };
 
   const handleSubmit = () => {
@@ -62,8 +72,14 @@ export default function UpdateMessage({ messageId, roomId, messageInput }) {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleSubmit}>Submit</Button>
+          <Button
+            onClick={() => {
+              removeMessage(messageId);
+            }}
+          >
+            Delete
+          </Button>
+          <Button onClick={handleSubmit}>Edit</Button>
         </DialogActions>
       </Dialog>
     </div>

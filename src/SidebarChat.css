@@ -18,6 +18,7 @@
 }
 
 .sidebarChat__info {
+  margin-top: 10px;
   margin-left: 15px;
   cursor: pointer;
 }
@@ -33,6 +34,7 @@ a {
 
 .sidebarChat__buttons {
   display: flex;
+  margin-top: 15px;
   cursor: pointer;
 }
 

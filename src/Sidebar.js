@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Sidebar.css';
 import { Avatar, IconButton } from '@mui/material';
-import { Chat, MoreVert, SearchOutlined, Home } from '@mui/icons-material';
+import { MoreVert, SearchOutlined, Home } from '@mui/icons-material';
 import SidebarChat from './SidebarChat';
 import db from './firebase';
 import { useStateValue } from './StateProvider';
@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 
 function Sidebar(props) {
   const [rooms, setRooms] = useState([]);
+  const [filter, setFilter] = useState('');
   const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
@@ -25,6 +26,16 @@ function Sidebar(props) {
       unsubscribe();
     };
   }, []);
+
+  const findRooms = (str) => {
+    if (rooms !== []) {
+      const filteredRooms = rooms.filter((room) => {
+        const roomName = room.data.name.toLowerCase();
+        return roomName.includes(str);
+      });
+      return filteredRooms;
+    }
+  };
 
   return (
     <div className='sidebar'>
@@ -47,14 +58,25 @@ function Sidebar(props) {
       <div className='sidebar__search'>
         <div className='sidebar__searchContainer'>
           <SearchOutlined />
-          <input type='text' placeholder='Search' />
+          <form>
+            <input
+              value={filter}
+              onChange={(e) => setFilter(e.target.value.toLowerCase())}
+              type='text'
+              placeholder='Search a chat room'
+            />
+          </form>
         </div>
       </div>
       <div className='sidebar__chats'>
         <SidebarChat addNewChat />
-        {rooms.map((room) => (
-          <SidebarChat key={room.id} id={room.id} name={room.data.name} />
-        ))}
+        {filter === ''
+          ? rooms.map((room) => (
+              <SidebarChat key={room.id} id={room.id} name={room.data.name} />
+            ))
+          : findRooms(filter).map((room) => (
+              <SidebarChat key={room.id} id={room.id} name={room.data.name} />
+            ))}
       </div>
     </div>
   );

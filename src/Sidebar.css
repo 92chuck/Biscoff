@@ -1,12 +1,11 @@
 .sidebar {
-  flex: 0.35;
+  flex: 0.3;
   overflow: auto;
 }
 
 .sidebar__search {
   display: flex;
   align-items: center;
-  background-color: #f6f6f6;
   height: 39px;
   padding: 10px;
 }
@@ -16,9 +15,16 @@
   padding: 10px;
 }
 
-.sidebar__searchContainer > input {
+.sidebar__searchContainer > form {
+  flex: 1;
+  display: flex;
+}
+
+.sidebar__searchContainer > form > input {
+  flex: 1;
+  border-radius: 30px;
+  padding: 10px;
   border: none;
-  margin-left: 10px;
 }
 
 .sidebar__searchContainer {

@@ -9,6 +9,11 @@ import db from './firebase';
 function Login() {
   const [{}, dispatch] = useStateValue();
   const [users, setUsers] = useState();
+  const [seed, setSeed] = useState(null);
+
+  useEffect(() => {
+    setSeed(Math.floor(Math.random() * 5000));
+  }, []);
 
   useEffect(() => {
     db.collection('users').onSnapshot((snapshot) => {
@@ -42,7 +47,7 @@ function Login() {
     <div className='login'>
       <div className='login__container'>
         <img
-          src='https://theme.zdassets.com/theme_assets/11534279/64c64fc11e057ac12472f4699df4c4c570b7f995.png'
+          src={`https://avatars.dicebear.com/api/croodles/${seed}.png`}
           alt=''
         />
         <div className='login_text'>
