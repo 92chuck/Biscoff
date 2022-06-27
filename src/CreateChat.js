@@ -28,10 +28,10 @@ export default function CreateChat() {
       })
       .then(() => {
         handleClose();
-      })
-      .catch((error) => {
-        console.error('Error creating document: ', error);
       });
+    setRoomName('').catch((error) => {
+      console.error('Error creating document: ', error);
+    });
   };
   return (
     <div>
