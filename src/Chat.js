@@ -209,15 +209,13 @@ function Chat() {
                 <div className='chat__name'>
                   {message.data.name}
                   {message.data.name === user.displayName ? (
-                    <>
-                      <span className='chat__editbutton'>
-                        <EditOrDeleteMessage
-                          messageId={message.id}
-                          roomId={roomId}
-                          messageInput={message.data.message}
-                        />
-                      </span>
-                    </>
+                    <span className='chat__editbutton'>
+                      <EditOrDeleteMessage
+                        messageId={message.id}
+                        roomId={roomId}
+                        messageInput={message.data.message}
+                      />
+                    </span>
                   ) : (
                     ''
                   )}
