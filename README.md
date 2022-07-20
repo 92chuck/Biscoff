@@ -1,7 +1,7 @@
 # Biscoff
 
 <em>Biscoff is a real-time chatting application with Google Firebase
-https://real-time-chatting-app-feb89.firebaseapp.com/</em>
+</em>
 
 ---
 
