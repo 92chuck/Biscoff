@@ -34,6 +34,8 @@ If you want to dabble with Biscoff, feel free to clone our repo! After cloning, 
 npm install
 npm start
 
+and need to set up your own Firebase config address. create an app on Firebase and put your own config information to src/firebase.js
+
 Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 ```
