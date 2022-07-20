@@ -51,7 +51,7 @@ function Login() {
           alt=''
         />
         <div className='login_text'>
-          <h1>Sign in to Application</h1>
+          <h1>Sign in to "Biscoff" </h1>
         </div>
         <Button type='submit' onClick={signIn}>
           Sign in With Google
