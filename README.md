@@ -10,9 +10,6 @@ Biscoff is a simple and straight-forward real-time web chatting application. Hav
 ## Video walkthrough :movie_camera:
 https://www.youtube.com/watch?v=81yundsUn9U
 
-## Link to our chat 
-https://biscoff-38b31.firebaseapp.com/
-
 ## Key Features :key:
 
 - Login in with Google Account through Google O'auth from Firebase.
