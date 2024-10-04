@@ -7,9 +7,6 @@
 
 Biscoff is a simple and straight-forward real-time web chatting application. Having a conversation with a good cup of coffee and biscoff through "Biscoff" will provide friendly and relaxed mood for users! Before chat, don't forget to prepare them on the side!
 
-## Video walkthrough :movie_camera:
-https://www.youtube.com/watch?v=81yundsUn9U
-
 ## Key Features :key:
 
 - Login in with Google Account through Google O'auth from Firebase.
